@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C7 SPORTS | Trading Esportivo Soberano</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --brand-red: #FF1E1E;
+        --brand-orange: #FF8E3C;
+        --brand-yellow: #FFD700;
+        --bg-black: #010101;
+      }
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: var(--bg-black);
+        color: white;
+        overflow-x: hidden;
+      }
+      .mono { font-family: 'JetBrains Mono', monospace; }
+      
+      .gradient-text {
+        background: linear-gradient(135deg, #fff 30%, rgba(255,255,255,0.5) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .fire-text {
+        background: linear-gradient(to top, #FF1E1E, #FF8E3C, #FFD700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 0 15px rgba(255, 30, 30, 0.6));
+      }
+
+      .brand-gradient {
+        background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-orange) 100%);
+      }
+
+      .fire-gradient {
+        background: linear-gradient(to top, #880000 0%, #FF1E1E 40%, #FF8E3C 80%, #FFD700 100%);
+      }
+
+      .glass-premium {
+        background: rgba(255, 255, 255, 0.01);
+        backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+      }
+
+      .glow-fire {
+        box-shadow: 0 0 40px rgba(255, 30, 30, 0.3), 0 0 80px rgba(255, 142, 60, 0.15);
+      }
+
+      .fire-border-animate {
+        position: relative;
+      }
+      .fire-border-animate::after {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        background: linear-gradient(45deg, #FF1E1E, #FF8E3C, transparent, #FFD700, #FF1E1E);
+        background-size: 400% 400%;
+        animation: fire-move 5s ease infinite;
+        border-radius: inherit;
+        z-index: -1;
+        opacity: 0.5;
+        filter: blur(2px);
+      }
+
+      @keyframes fire-move {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      @keyframes ember-rise {
+        0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0; }
+        10% { opacity: 0.8; }
+        100% { transform: translateY(-100vh) scale(0) rotate(360deg); opacity: 0; }
+      }
+
+      .ember {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: #FF8E3C;
+        border-radius: 50%;
+        pointer-events: none;
+        box-shadow: 0 0 12px #FF1E1E, 0 0 4px #FFD700;
+        animation: ember-rise linear infinite;
+      }
+
+      .grid-lines {
+        background-image: radial-gradient(circle at 2px 2px, rgba(255, 30, 30, 0.08) 1.5px, transparent 0);
+        background-size: 40px 40px;
+      }
+
+      @keyframes ticker {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-ticker {
+        animation: ticker 30s linear infinite;
+      }
+
+      .fire-pulse {
+        animation: fire-pulse 3s ease-in-out infinite;
+      }
+
+      @keyframes fire-pulse {
+        0%, 100% { opacity: 0.3; filter: blur(60px) brightness(0.8); }
+        50% { opacity: 0.7; filter: blur(80px) brightness(1.2); }
+      }
+
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: var(--brand-red);
+        border-radius: 10px;
+      }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+      }
+    }
+    </script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div class="fixed inset-0 grid-lines pointer-events-none z-0"></div>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
